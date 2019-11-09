@@ -32,11 +32,21 @@ function init(){
         return random + "px";
     }  
 
+    function getRandomLocation(){
+        let max = 500;
+        let min = 20;
+        let random = Math.floor(Math.random() * (max - min + 1) + min);
+        console.log(random);
+        return random + "px";
+    } 
+
     function applyColor(ev){
         // console.log(ev.target)
         btn.style.backgroundColor = getRandomColor();
         btn.textContent = "";
         btn.style.padding = getRandomSize();
+        btn.style.marginLeft = getRandomLocation();
+        btn.style.marginTop = getRandomLocation();
     }
 
       document.getElementById('btn').addEventListener("click", applyColor);

@@ -3,15 +3,22 @@ document.addEventListener('DOMContentLoaded', init);
 function init(){
 
     let btn = document.createElement('BUTTON');
-    btn.textContent = "start";
+    let p = document.createElement('p');
 
+
+    btn.textContent = "start";
     btn.style.borderRadius = "50%";
     btn.style.padding = "100px";
     btn.style.border = "none";
     btn.style.backgroundColor = getRandomColor();
     btn.style.color = "white";
+    btn.style.outline = "none";
+
     btn.id = "btn";
     
+    p.textContent = 0;
+
+    document.body.appendChild(p);
     document.body.appendChild(btn);
 
 
@@ -32,27 +39,34 @@ function init(){
         return random + "px";
     }  
 
-    function getRandomLocation(){
-        let max = 500;
-        let min = 20;
+    function getRandomLocationWidth(){
+        let max = 300;
+        let min = 0;
         let random = Math.floor(Math.random() * (max - min + 1) + min);
-        console.log(random);
+        console.log("width" + " " + random);
         return random + "px";
     } 
+
+    function getRandomLocationHeight(){
+      let max = 600;
+      let min = 0;
+      let random = Math.floor(Math.random() * (max - min + 1) + min);
+      console.log("height" + " " + random);
+      return random + "px";
+  } 
 
     function applyColor(ev){
         // console.log(ev.target)
         btn.style.backgroundColor = getRandomColor();
         btn.textContent = "";
         btn.style.padding = getRandomSize();
-        btn.style.marginLeft = getRandomLocation();
-        btn.style.marginTop = getRandomLocation();
+        btn.style.marginLeft = getRandomLocationWidth();
+        btn.style.marginTop = getRandomLocationHeight();
+        btn.style.outline = "none";
     }
 
-      document.getElementById('btn').addEventListener("click", applyColor);
-
-      getRandomSize();
-    }
+    document.getElementById('btn').addEventListener("click", applyColor);
+  }
 
     
 
